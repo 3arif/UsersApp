@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewBag.Title = "Attendance Report";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="mb-4">Attendance Report for @ViewBag.ClientName</h2>
+
+            <form asp-action="CalculateAttendance" method="post">
+                <!-- Hidden input for Client ID -->
+                <input type="hidden" name="clientId" value="@ViewBag.ClientId" />
+
+                <div class="mb-3">
+                    <label for="startDate" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="endDate" class="form-label">End Date</label>
+                    <input type="date" class="form-control" id="endDate" name="endDate" required />
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">Calculate Attendance</button>
+            </form>
+        </div>
+    </div>
+</div>

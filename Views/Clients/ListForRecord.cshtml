@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<UsersApp.Models.Client>
+
+<h1>All Clients</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Phone</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model)
+        {
+            <tr>
+                <td>@client.id</td>
+                <td>@client.name</td>
+                <td>@client.surname</td>
+                <td>@client.phone</td>
+                <td>
+                    <a class="btn btn-success" asp-controller="Attendances"
+                       asp-action="Add" asp-route-id="@client.id">Add Record</a>
+                </td>
+                <td>
+                    <a class="btn btn-success" asp-controller="Attendances"
+                       asp-action="ListRecords" asp-route-id="@client.id">Show Attendances</a>
+                </td>
+                <td>
+                    <a class="btn btn-success" asp-controller="Attendances"
+                       asp-action="AttendanceReport" asp-route-clientId="@client.id">Generate report</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
